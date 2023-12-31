@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background-color: black;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        header {
+            text-align: left;
+            padding: 20em; /* Adjusted padding */
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        h1 {
+            margin-bottom: 0.2em;
+            font-size: 5em;
+        }
+
+        .about-me,
+        .projects,
+        .contact {
+            max-width: 800px; /* Set the maximum width for the paragraph container */
+            margin: -10px 0 0 -100px; /* Center-align the container */
+            padding: 20em ; /* Adjusted padding */
+            position: relative;
+            z-index: 2;
+            color: white;
+            opacity: 0.5;
+            transition: opacity 1s ease-in-out; /* Add a smooth transition effect */
+        }
+
+        .about-me p {
+            max-width: 600px; /* Set the maximum width for the paragraph text */
+            font-size: 1.2em;
+            font-family: 'Courier New', monospace;
+            line-height: 2;
+        }
+        .about-me h2 {
+            font-size: 3em;
+            font-family: 'fantasy', monospace;
+            line-height: 2;
+        }
+
+        #meImg {
+            width: 500px;
+            height: 600px;
+            float: right;
+            margin-right: -350px; /* Adjusted margin-right */
+            border-radius: 5%;
+            z-index: 2;
+            transition: opacity 1s ease-in-out; /* Add a smooth transition effect */
+            margin-top: -600px; /* Adjusted margin-top */
+        }
+
+        .projects {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .project-box {
+            width: 200px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.8); /* Example background color (white with some transparency) */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example box shadow */
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-box:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .contact-item {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        nav {
+            text-align: right;
+            padding: 1em;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 3; /* Ensure navigation is above the video and other content */
+            width: 100%; /* Set full width */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 20px; /* Adjust the spacing between navigation items */
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            transition: color 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: #ccc;
+        }
+
+        .description {
+            font-size: 2em;
+        }
+
+        .fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="techy.mp4" type="video/mp4">
+    </video>
+
+    <nav>
+        <ul>
+            <li><a href="#home-section">Home</a></li>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home-section" class="fadeIn">
+        <h1>Hi, Felix here...</h1>
+        <p class="description">Welcome</p>
+    </header>
+
+    <div id="about-me" class="about-me">
+        <h2>About Me</h2>
+        <p>Hi there! I'm Felix Gutierrez, a dedicated and creative programmer from Holyoke, Massachusetts. Along with having an excellent eye for design, I have a solid understanding of front-end and back-end technology, as well as having a strong knowledge of Programming, and Data Structures and Algorithms. I got interested in programming because I was interested in using code to bring ideas to life. Ever since, I've been committed to developing my knowledge and creating worthwhile programming experiences.</p>
+        <br>
+        <p>When I am not coding, you can probably call me a fitness maniac. The gym has become my passion as I got older due to the disciplinary practices of working to see results.</p>
+        <img id="meImg" src="me.jpeg" alt="Placeholder image">
+    </div>
+
+    <div id="projects" class="projects">
+        <div class="project-box" onmouseover="showText(this)" onmouseout="hideText(this)">
+            <h3>Web Application for Player Data Retrieval</h3>
+            <p style="display: none;">Developed a Next.js and Node.js project to retrieve player data from a MySQL database. Ensured secure authentication and efficient data retrieval using asynchronous programming.</p>
+        </div>
+        <div class="project-box" onmouseover="showText(this)" onmouseout="hideText(this)">
+            <h3>User Authentication System</h3>
+            <p style="display: none;">This project is a basic web-based user authentication system. It uses HTML forms for user registration and password retrieval. The backend, powered by Express.js and MySQL, handles data storage and retrieval, ensuring a seamless user experience.</p>
+        </div>
+        <!-- Add more project boxes as needed -->
+    </div>
+
+    <div id="contact" class="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p>Feel free to reach out to me! Whether you have a project in mind, want to collaborate, or just want to chat, I'm always open to new opportunities as well as Job offers.</p>
+            <div class="contact-methods">
+                <div class="contact-item">
+                    <img src="mail.png" alt="Email Icon">
+                    <p>Email: felixgutierrez333@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <img src="phone.png" alt="Phone Icon">
+                    <p>Phone: (413) 420-5052</p>
+                </div>
+                <div class="contact-item">
+                    <img src="linkedin.png" alt="LinkedIn Icon">
+                    <p><a href="https://www.linkedin.com/in/felix-gutierrez-b6a054235/" target="_blank">LinkedIn</a></p>
+                </div>
+                <div class="contact-item">
+                    <img src="github.png" alt="GitHub Icon">
+                    <p><a href="https://github.com/Felixg2468" target="_blank">GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isInAboutMeSection = false;
+        let isInProjectsSection = false;
+        let isInContactSection = false;
+    
+        function toggleOpacity(elementId) {
+            const section = document.getElementById(elementId);
+            const bounding = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const isInViewport = bounding.top < windowHeight / 2 && bounding.bottom > windowHeight / 2;
+    
+            if (elementId === 'about-me') {
+                if (isInAboutMeSection !== isInViewport) {
+                    isInAboutMeSection = isInViewport;
+                    section.style.opacity = isInViewport ? 1 : 0;
+                }
+            } else if (elementId === 'projects') {
+                if (isInProjectsSection !== isInViewport) {
+                    isInProjectsSection = isInViewport;
+                    section.style.opacity = isInViewport ? 1 : 0;
+                }
+            } else if (elementId === 'contact') {
+                if (isInContactSection !== isInViewport) {
+                    isInContactSection = isInViewport;
+                    section.style.opacity = isInViewport ? 1 : 0;
+                }
+            }
+        }
+    
+        function checkVisibilityOnLoad() {
+            toggleOpacity('about-me');
+            toggleOpacity('projects');
+            toggleOpacity('contact');
+        }
+    
+        window.addEventListener('scroll', function () {
+            toggleOpacity('about-me');
+            toggleOpacity('projects');
+            toggleOpacity('contact');
+        });
+    
+        window.addEventListener('resize', function () {
+            toggleOpacity('about-me');
+            toggleOpacity('projects');
+            toggleOpacity('contact');
+        });
+    
+        // Check visibility when the page loads
+        window.addEventListener('load', checkVisibilityOnLoad);
+    
+        function showText(element) {
+            element.querySelector('p').style.display = 'block';
+        }
+    
+        function hideText(element) {
+            element.querySelector('p').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
